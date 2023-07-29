@@ -1,17 +1,29 @@
 package neuralnetwork
 
-import "math"
+import (
+	"errors"
+	"math"
 
-func Activation(option int32, input float64) float64 {
+	"github.com/mac-lawson/tensorgo/errorhandling"
+)
+
+/*
+* Activation Function
+* Options:
+* 1: Sigmoid
+* 2: Tanh
+* 3. reLu
+ */
+func Activation(option int32, input float64) (float64, error) {
 	switch option {
 	default:
-		return 0.0
+		return 0.0, errors.New(errorhandling.ActiviationFunctionOptionNotProvided())
 	case 1:
-		return sigmoid(input)
+		return sigmoid(input), nil
 	case 2:
-		return tanh(input)
+		return tanh(input), nil
 	case 3:
-		return reLU(input)
+		return reLU(input), nil
 	}
 
 }

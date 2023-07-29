@@ -1,12 +1,13 @@
 package neuralnetwork
 
 import (
-	"fmt"
+	"errors"
 
+	"github.com/mac-lawson/tensorgo/errorhandling"
 	"github.com/mac-lawson/tensorgo/tensor"
 )
 
-type neuronoutput struct {
+type NeuronOutput struct {
 	Y float64
 }
 
@@ -25,9 +26,12 @@ type Weights struct {
 *   - Each should be processed by every neuron in the neural network
 *	- Should return a neuron output (y)
 *   - Supports data types strings, float64, and int64. LTS needs 32-bit support as well :)
-*
+*   - Runs the activation function!
  */
-func Neuron(input tensor.Gotensor_dtypefloat64, weights *Weights, activator int32) *neuronoutput {
-	fmt.Println(len(input.Data[0]) == len(weights.W))
-	return &neuronoutput{Y: 4.9}
+func Neuron(input tensor.Gotensor_dtypefloat64, weights *Weights, activator int32) (*NeuronOutput, error) {
+	if len(input.Data[0]) != len(weights.W) {
+		return &NeuronOutput{Y: 0}, errors.New(errorhandling.TensorNotMatching())
+	} else {
+		return &NeuronOutput{Y: 4.9}, nil
+	}
 }
