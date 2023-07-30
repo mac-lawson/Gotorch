@@ -14,7 +14,7 @@ import (
 * 2: Tanh
 * 3. reLu
  */
-func Activation(option int32, input float64) (float64, error) {
+func Activation(option uint8, input float64) (float64, error) {
 	switch option {
 	default:
 		return 0.0, errors.New(errorhandling.ActiviationFunctionOptionNotProvided())

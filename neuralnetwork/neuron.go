@@ -1,9 +1,12 @@
 package neuralnetwork
 
 import (
-	"errors"
+	// "errors"
 
-	"github.com/mac-lawson/tensorgo/errorhandling"
+	// "github.com/mac-lawson/tensorgo/errorhandling"
+
+	"fmt"
+
 	"github.com/mac-lawson/tensorgo/tensor"
 )
 
@@ -21,17 +24,31 @@ type Weights struct {
 	// wMin float64
 }
 
-/* TODO Take in a tensor
-*	- Each value of a tensor should be treated as an individual input
-*   - Each should be processed by every neuron in the neural network
-*	- Should return a neuron output (y)
-*   - Supports data types strings, float64, and int64. LTS needs 32-bit support as well :)
-*   - Runs the activation function!
- */
-func Neuron(input tensor.Gotensor_dtypefloat64, weights *Weights, activator int32) (*NeuronOutput, error) {
-	if len(input.Data[0]) != len(weights.W) {
-		return &NeuronOutput{Y: 0}, errors.New(errorhandling.TensorNotMatching())
-	} else {
-		return &NeuronOutput{Y: 4.9}, nil
+/*
+	 TODO Take in a tensor
+		(CURRENT) - Prints out the result of each epoch
+		(FUTURE) - Should return an array containing the result of each epoch
+*/
+
+// FUTURE Neuron() function
+
+// func Neuron(input tensor.Gotensor_dtypefloat64, weights *Weights, activator int32) (*NeuronOutput, error) {
+// 	if len(input.Data[0]) != len(weights.W) {
+// 		return &NeuronOutput{Y: 0.0}, errors.New(errorhandling.TensorNotMatching())
+// 	} else {
+// 		return &NeuronOutput{Y: 0.0}, nil
+// 	}
+// }
+
+// CURRENT Neuron() function
+
+func Neuron(input tensor.Gotensor_dtypefloat64, weights *Weights, activation uint8) error {
+	// verify that each tensor array has the same value of the weights
+	for i := 0; i < len(input.Data); i++ {
+		for ii := 0; ii < len(input.Data[i]); ii++ {
+			// ended work here, still need to iterate through each epoch
+			fmt.Println(input.Data[i][ii])
+		}
 	}
+	return nil
 }

@@ -4,31 +4,23 @@ import (
 	"fmt"
 
 	"github.com/mac-lawson/tensorgo/neuralnetwork"
+	"github.com/mac-lawson/tensorgo/tensor"
 )
 
 func main() {
-	// tn := tensor.Gotensor_dtypefloat64{
-	// 	Data: [][]float64{
-	// 		{6.7, 4.5},
-	// 		{4.5, 4.5},
-	// 	},
-	// }
-	// wei := neuralnetwork.Weights{
-	// 	W: []float64{4.5, 3.3},
-	// 	B: 4.5,
-	// }
-	// resp, err := neuralnetwork.Neuron(tn, &wei, 1)
-	// if err != nil {
-	// 	fmt.Println(err)
+	tn := tensor.Gotensor_dtypefloat64{
+		Data: [][]float64{
+			{5.0, 6.6, 7.8},
+			{4.4, 5.6, 8.9},
+		},
+	}
+	wei := neuralnetwork.Weights{
+		W: []float64{4.4, 5.5, 6.6},
+		B: 1.0,
+	}
 
-	// } else {
-	// 	fmt.Println(resp)
-	// }
-
-	y, err := neuralnetwork.InnerNeuron(3.4, 1.0, 3.0, 6)
+	err := neuralnetwork.Neuron(tn, &wei, 1)
 	if err != nil {
 		fmt.Println(err)
-	} else {
-		fmt.Println(y)
 	}
 }
