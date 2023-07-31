@@ -17,7 +17,7 @@ import (
 func Activation(option uint8, input float64) (float64, error) {
 	switch option {
 	default:
-		return 0.0, errors.New(errorhandling.ActiviationFunctionOptionNotProvided())
+		return 0.0, errors.New(errorhandling.ActiviationFunctionOptionNotProvided("n/a"))
 	case 1:
 		return sigmoid(input), nil
 	case 2:

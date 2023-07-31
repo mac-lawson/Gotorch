@@ -15,7 +15,7 @@ func TensorNotMatching() string {
 	return "[TensorGo Error] The length of the tensor and the weights are not the same."
 }
 
-func ActiviationFunctionOptionNotProvided() string {
+func ActiviationFunctionOptionNotProvided(detail string) string {
 	return "[TensorGo Error] The option 32-bit Integer provided was not 1, 2, or 3. \nThe y value is now 0.0. \n 1: Sigmoid \t 2: Tanh \t 3: ReLu"
 }
 

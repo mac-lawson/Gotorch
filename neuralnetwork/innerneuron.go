@@ -4,7 +4,7 @@ package neuralnetwork
 * TODO Inner Neuron functions
 *	function should be able to take an array of inputs and an array of weights
 *	to should run the Activiation function and return the Y value for each epoch
-*
+*	- Phase out the weightX input. For now, I will just set it as 1 if I don't need it
 *
  */
 
