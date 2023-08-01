@@ -5,11 +5,11 @@ type Gotensor_dtypefloat64 struct {
 }
 
 type Gotensor_dtypeint64 struct {
-	data [][]int64
+	Data [][]int64
 }
 
 type Gotensor_dtypestring struct {
-	data [][]string
+	Data [][]string
 }
 
 /* TODO Detirmine if the structs for the tensors should be public/private
