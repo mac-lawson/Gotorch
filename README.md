@@ -4,7 +4,7 @@
 ### Gotensors
 Gotensors are basically the same as a numpy array. 
 
-There are three differant data types of gotensors:
+There are three different data types of gotensors:
 
 - Gotensor_dtypefloat64 | float64
 - Gotensor_dtypeint64 | int64
