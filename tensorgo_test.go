@@ -1,11 +1,37 @@
 package main
 
 import (
+	"fmt"
 	"testing"
 
 	"github.com/mac-lawson/tensorgo/neuralnetwork"
 	"github.com/mac-lawson/tensorgo/tensor"
 )
+
+/*
+      _____                    _____                    _____                _____                    _____
+     /\    \                  /\    \                  /\    \              /\    \                  /\    \
+    /::\    \                /::\    \                /::\    \            /::\    \                /::\    \
+    \:::\    \              /::::\    \              /::::\    \           \:::\    \              /::::\    \
+     \:::\    \            /::::::\    \            /::::::\    \           \:::\    \            /::::::\    \
+      \:::\    \          /:::/\:::\    \          /:::/\:::\    \           \:::\    \          /:::/\:::\    \
+       \:::\    \        /:::/__\:::\    \        /:::/__\:::\    \           \:::\    \        /:::/__\:::\    \
+       /::::\    \      /::::\   \:::\    \       \:::\   \:::\    \          /::::\    \       \:::\   \:::\    \
+      /::::::\    \    /::::::\   \:::\    \    ___\:::\   \:::\    \        /::::::\    \    ___\:::\   \:::\    \
+     /:::/\:::\    \  /:::/\:::\   \:::\    \  /\   \:::\   \:::\    \      /:::/\:::\    \  /\   \:::\   \:::\    \
+    /:::/  \:::\____\/:::/__\:::\   \:::\____\/::\   \:::\   \:::\____\    /:::/  \:::\____\/::\   \:::\   \:::\____\
+   /:::/    \::/    /\:::\   \:::\   \::/    /\:::\   \:::\   \::/    /   /:::/    \::/    /\:::\   \:::\   \::/    /
+  /:::/    / \/____/  \:::\   \:::\   \/____/  \:::\   \:::\   \/____/   /:::/    / \/____/  \:::\   \:::\   \/____/
+ /:::/    /            \:::\   \:::\    \       \:::\   \:::\    \      /:::/    /            \:::\   \:::\    \
+/:::/    /              \:::\   \:::\____\       \:::\   \:::\____\    /:::/    /              \:::\   \:::\____\
+\::/    /                \:::\   \::/    /        \:::\  /:::/    /    \::/    /                \:::\  /:::/    /
+ \/____/                  \:::\   \/____/          \:::\/:::/    /      \/____/                  \:::\/:::/    /
+                           \:::\    \               \::::::/    /                                 \::::::/    /
+                            \:::\____\               \::::/    /                                   \::::/    /
+                             \::/    /                \::/    /                                     \::/    /
+                              \/____/                  \/____/                                       \/____/
+
+*/
 
 func TestTensorAllDataTypes(t *testing.T) {
 	tn := &tensor.Gotensor_dtypefloat64{
@@ -37,7 +63,32 @@ func TestActivationFunctionSigmoid(t *testing.T) {
 		t.Errorf(err.Error())
 	} else {
 		if result != 0.9890130573694068 {
+			fmt.Println(result)
 			t.Errorf("sigmoid(4.5) should return 0.9890130573694068")
+		}
+	}
+}
+
+func TestActivationFunctionreLu(t *testing.T) {
+	result, err := neuralnetwork.Activation(3, 4.5)
+	if err != nil {
+		t.Errorf(err.Error())
+	} else {
+		if result != 4.5 {
+			fmt.Println(result)
+			t.Errorf("reLu(4.5) should return 4.5")
+		}
+	}
+}
+
+func TestActivationFunctionTanh(t *testing.T) {
+	result, err := neuralnetwork.Activation(2, 4.5)
+	if err != nil {
+		t.Errorf(err.Error())
+	} else {
+		if result != 0.9997532108480275 {
+			fmt.Println(result)
+			t.Errorf("tanh(4.5) should return 0.9997532108480275")
 		}
 	}
 }

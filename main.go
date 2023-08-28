@@ -5,6 +5,7 @@ import (
 
 	"github.com/mac-lawson/tensorgo/neuralnetwork"
 	"github.com/mac-lawson/tensorgo/tensor"
+	// "math/rand"
 )
 
 func main() {
@@ -19,16 +20,11 @@ func main() {
 			{5.7, 1.6, 7.8},
 		},
 	}
-	wei := neuralnetwork.Weights{
-		W: []float64{4.4, 5.5, 6.6},
-		B: 1.0,
-	}
-
-	y, err := neuralnetwork.RealNeuron(tn, &wei, 1)
+	resp, err := neuralnetwork.SimpleNeuralNetwork(2, 1, tn)
 	if err != nil {
 		fmt.Println(err)
 	} else {
-		fmt.Println(y.Y)
+		fmt.Println(resp)
 	}
 
 }

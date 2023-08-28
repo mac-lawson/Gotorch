@@ -1,6 +1,9 @@
 package neuralnetwork
 
 import (
+	"errors"
+	"math/rand"
+
 	"github.com/mac-lawson/tensorgo/tensor"
 )
 
@@ -22,9 +25,18 @@ It has three parts, the:
 - hidden layer
 - output layer
 */
-func SimpleNeuralNetwork(neurons uint64, activator uint8, tensors tensor.Gotensor_dtypefloat64) int64 {
-	for i := 0; i < int(neurons); i++ {
+func SimpleNeuralNetwork(neurons uint64, activator uint8, tensors tensor.Gotensor_dtypefloat64) (string, error) {
+	r := rand.New(rand.NewSource(99))
 
+	// generate weights
+	wei := Weights{
+		W: []float64{r.Float64(), r.Float64(), r.Float64()},
+		B: 1.0,
 	}
-	return 0
+	if len(wei.W) == 0 {
+		errors.New("value of 0 error")
+	}
+
+	// fmt.Println(wei)
+	return "This function is currently under development", nil
 }
