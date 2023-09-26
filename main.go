@@ -20,7 +20,7 @@ func main() {
 			{5.7, 1.6, 7.8},
 		},
 	}
-	resp, err := neuralnetwork.SimpleNeuralNetwork(2, 1, tn)
+	resp, err := neuralnetwork.SimpleNeuralNetwork(2, 1, tn, 5)
 	if err != nil {
 		fmt.Println(err)
 	} else {
