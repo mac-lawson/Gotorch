@@ -1,7 +1,7 @@
-# Welcome to Tensorgo
+# Topic
 
-## Getting Started
-### Creating your first Tensor
+## First Call to Action
+### Step One
 ```golang
 package main
 

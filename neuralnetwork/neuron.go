@@ -59,7 +59,7 @@ func RealNeuron(input tensor.Gotensor_dtypefloat64, weights *Weights, activator 
 
 // TEST Neuron() function
 // id: the ID of the neuron to ensure
-func NeuronTest(input tensor.Gotensor_dtypefloat64, weights *Weights, activation uint8, id int64) error {
+func NeuronTest(input tensor.Gotensor_dtypefloat64, weights Weights, activation uint8, id int64) error {
 	// epoch counter
 	var epoch uint8 = 0
 	// verify that each tensor array has the same value of the weights

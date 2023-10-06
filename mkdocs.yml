@@ -15,7 +15,9 @@ theme:
 
 nav:
   - Introduction: 'index.md'
-  - 'about.md'
+  - Cloud Server: 'cloudserver.md'
+  - Tensor: 'tensor.md'
+
   - 'Go Documentation': 'https://go.dev/'
 
 plugins:

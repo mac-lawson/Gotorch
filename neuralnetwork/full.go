@@ -26,7 +26,7 @@ It has three parts, the:
 - hidden layer
 - output layer
 */
-func SimpleNeuralNetwork(neurons uint64, activator uint8, tensors tensor.Gotensor_dtypefloat64, length uint64) (string, error) {
+func SimpleNeuralNetwork(neurons uint64, activator uint8, tensors tensor.Gotensor_dtypefloat64) (string, error) {
 	r := rand.New(rand.NewSource(99))
 
 	// generate weights
@@ -34,7 +34,7 @@ func SimpleNeuralNetwork(neurons uint64, activator uint8, tensors tensor.Gotenso
 		W: []float64{},
 		B: 1.0,
 	}
-	for i := 0; i < int(length); i++ {
+	for i := 0; i < len(tensors.Data); i++ {
 		wei.W = append(wei.W, r.Float64())
 	}
 	fmt.Println(wei.W)
