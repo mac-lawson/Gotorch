@@ -10,11 +10,27 @@ import (
 
 /*
 ConvolutionalNeuralNetwork function
-
+* Activation Function
+* Options:
+* 1: Sigmoid
+* 2: Tanh
+* 3. reLu
 This function runs a simulated convolutional neural network.
 */
-func ConvolutionalNeuralNetwork(layers uint64, activator uint8) int64 {
-	return 0
+func ConvolutionalNeuralNetwork(tensors tensor.Gotensor_dtypefloat64, layers uint64, activator uint8) (*ConvolutionalOutputArray, error) {
+	Y := ConvolutionalOutputArray{
+		Y: []NeuronOutputArray{},
+	}
+	// r := rand.New(rand.NewSource(99))
+	for layer := 0; layer < int(layers); layer++ {
+		result, err := SimpleNeuralNetwork(3, activator, tensors, false)
+		if err != nil {
+			errors.New(err.Error())
+		} else {
+			Y.Y = append(Y.Y, *result)
+		}
+	}
+	return &Y, nil
 }
 
 /*
@@ -25,9 +41,21 @@ It has three parts, the:
 - input layer
 - hidden layer
 - output layer
+* Activation Function
+* Options:
+* 1: Sigmoid
+* 2: Tanh
+* 3. reLu
+
+Verbose mode (bool):
+If you would like to see a more verbose output of the result, enable verbose mode.
 */
-func SimpleNeuralNetwork(neurons uint64, activator uint8, tensors tensor.Gotensor_dtypefloat64) (string, error) {
+func SimpleNeuralNetwork(neurons uint64, activator uint8, tensors tensor.Gotensor_dtypefloat64, verbose bool) (*NeuronOutputArray, error) {
 	r := rand.New(rand.NewSource(99))
+	// generate output so that we can average out the outputs of the function
+	Y := NeuronOutputArray{
+		Y: []float64{},
+	}
 
 	// generate weights
 	wei := Weights{
@@ -37,12 +65,40 @@ func SimpleNeuralNetwork(neurons uint64, activator uint8, tensors tensor.Gotenso
 	for i := 0; i < len(tensors.Data); i++ {
 		wei.W = append(wei.W, r.Float64())
 	}
-	fmt.Println(wei.W)
-
 	if len(wei.W) == 0 {
-		return "", errors.New("value of 0 error")
+		return &Y, errors.New("value of 0 error")
 	}
 
-	// fmt.Println(wei)
-	return "This function is currently under development", nil
+	// for every neyron
+	for i := 0; i < int(neurons); i++ {
+		// for every array of tensors
+		for i := 0; i < len(tensors.Data); i++ {
+			// for every tensor inside of the array
+			for tensor := 0; tensor < len(tensors.Data[i]); tensor++ {
+				// run it through the InnerNeuron function with the data and weights
+				// TODO change this so that you can chose the activiation function (1 is default)
+				output, err := InnerNeuron(tensors.Data[i][tensor], wei.W[tensor], wei.B, activator)
+				if err != nil {
+					// quit and raise an error if one is encountered during the running of the InnerNeuron function.
+					// It returns all data recived so far before the error to ensure integrity.
+					return &Y, errors.New(err.Error())
+				} else {
+					// TODO change this so that there is a verbose mode and a regular output mode
+					fmt.Println("Evolution Completed \t Set:", i, "Convolution", tensor)
+					fmt.Println("Output:", output)
+					// add the result to the output array so that a value of the function can be return of the average of all of the results
+					Y.Y = append(Y.Y, output)
+
+				}
+			}
+		}
+	}
+	if verbose {
+		fmt.Println("\033[32m", "Network Finished Running")
+		fmt.Println("\033[34m", "\tInformation")
+		fmt.Println("Total Tensor Arrays", len(tensors.Data))
+		fmt.Println("Total Weights", len(wei.W))
+	}
+
+	return &Y, nil
 }

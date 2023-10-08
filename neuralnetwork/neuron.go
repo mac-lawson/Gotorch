@@ -16,6 +16,14 @@ type NeuronOutput struct {
 	Y float64
 }
 
+type NeuronOutputArray struct {
+	Y []float64
+}
+
+type ConvolutionalOutputArray struct {
+	Y []NeuronOutputArray
+}
+
 /* TODO Generate a weight for the tensor going into the function
 * - array of weight value (w) needs to be associated with the tensor (i.e tensor[1]== w[1])
 * - b value is assigned as a seperate input for every neuron
