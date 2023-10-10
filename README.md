@@ -1,4 +1,4 @@
-# Tensorgo
+# Gotorch
 ## Building simple neural networks in Golang
 
 ### Gotensors
