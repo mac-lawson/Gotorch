@@ -23,9 +23,10 @@ func ConvolutionalNeuralNetwork(tensors tensor.Gotensor_dtypefloat64, layers uin
 	}
 	// r := rand.New(rand.NewSource(99))
 	for layer := 0; layer < int(layers); layer++ {
+		fmt.Println("\033[34m", "Layer:", layer, "\x1b[0m")
 		result, err := SimpleNeuralNetwork(3, activator, tensors, false)
 		if err != nil {
-			errors.New(err.Error())
+			return &Y, errors.New(err.Error())
 		} else {
 			Y.Y = append(Y.Y, *result)
 		}

@@ -17,12 +17,12 @@ func main() {
 		},
 	}
 
-	result, er := neuralnetwork.SimpleNeuralNetwork(2, 2, tn, true)
+	result, er := neuralnetwork.ConvolutionalNeuralNetwork(tn, 4, 1)
 
 	if er != nil {
 		fmt.Println(er)
 	} else {
-		tensor.Readfloat64(fintn)
+		fmt.Println(result)
 	}
 
 }
