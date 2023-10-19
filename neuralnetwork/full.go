@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"math/rand"
 
-	"github.com/mac-lawson/tensorgo/tensor"
+	"github.com/mac-lawson/gotorch/tensor"
 )
 
 /*

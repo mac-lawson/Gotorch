@@ -34,8 +34,8 @@ package main
 import (
 	"fmt"
 
-	"github.com/mac-lawson/tensorgo/neuralnetwork"
-	"github.com/mac-lawson/tensorgo/tensor"
+	"github.com/mac-lawson/gotorch/neuralnetwork"
+	"github.com/mac-lawson/gotorch/tensor"
 )
 
 func main() {

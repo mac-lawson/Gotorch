@@ -4,7 +4,7 @@ import (
 	"errors"
 	"math"
 
-	"github.com/mac-lawson/tensorgo/errorhandling"
+	"github.com/mac-lawson/gotorch/errorhandling"
 )
 
 /*

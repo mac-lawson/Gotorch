@@ -3,13 +3,13 @@ package neuralnetwork
 import (
 	// "errors"
 
-	// "github.com/mac-lawson/tensorgo/errorhandling"
+	// "github.com/mac-lawson/gotorch/errorhandling"
 
 	"errors"
 	"fmt"
 
-	"github.com/mac-lawson/tensorgo/errorhandling"
-	"github.com/mac-lawson/tensorgo/tensor"
+	"github.com/mac-lawson/gotorch/errorhandling"
+	"github.com/mac-lawson/gotorch/tensor"
 )
 
 type NeuronOutput struct {
