@@ -9,9 +9,11 @@ import (
  */
 
 func Numerical(tensor any) bool {
-	if reflect.TypeOf(tensor).Name() != "Gotensor_dtypefloat64" {
-		return false
-	} else {
+	if reflect.TypeOf(tensor).Name() == "Gotensor_dtypefloat64" {
 		return true
+	} else if reflect.TypeOf(tensor).Name() == "Gotensor_dtypeint64" {
+		return true
+	} else {
+		return false
 	}
 }

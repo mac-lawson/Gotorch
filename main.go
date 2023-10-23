@@ -8,13 +8,9 @@ import (
 )
 
 func main() {
-
-	tn := tensor.Gotensor_dtypefloat64{
-		Data: [][]float64{
-			{1.3, 1.4},
-			{1.5},
-			{2.3, 5.6, 10},
-		},
+	values := [][]int64{{1, 2, 3}, {2, 3, 4}}
+	tn := tensor.Gotensor_dtypeint64{
+		Data: values,
 	}
 
 	// utils.Mean(tn)
