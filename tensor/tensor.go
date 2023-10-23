@@ -18,20 +18,20 @@ type Gotensor_dtypestring struct {
 *
  */
 
-// func GoTensorFloat64(data [][]float64) *gotensor_dtypefloat64 {
-// 	return &gotensor_dtypefloat64{
-// 		data: data,
-// 	}
-// }
+func GoTensorFloat64(data [][]float64) *Gotensor_dtypefloat64 {
+	return &Gotensor_dtypefloat64{
+		Data: data,
+	}
+}
 
-// func GoTensorInt64(data [][]int64) *gotensor_dtypeint64 {
-// 	return &gotensor_dtypeint64{
-// 		data: data,
-// 	}
-// }
+func GoTensorInt64(data [][]int64) *Gotensor_dtypeint64 {
+	return &Gotensor_dtypeint64{
+		Data: data,
+	}
+}
 
-// func GoTensorString(data [][]string) *gotensor_dtypestring {
-// 	return &gotensor_dtypestring{
-// 		data: data,
-// 	}
-// }
+func GoTensorString(data [][]string) *Gotensor_dtypestring {
+	return &Gotensor_dtypestring{
+		Data: data,
+	}
+}

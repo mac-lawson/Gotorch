@@ -3,8 +3,8 @@ package main
 import (
 	"fmt"
 
-	"github.com/mac-lawson/gotorch/neuralnetwork"
 	"github.com/mac-lawson/gotorch/tensor"
+	"github.com/mac-lawson/gotorch/utils"
 )
 
 func main() {
@@ -17,12 +17,6 @@ func main() {
 		},
 	}
 
-	result, er := neuralnetwork.ConvolutionalNeuralNetwork(tn, 4, 1)
-
-	if er != nil {
-		fmt.Println(er)
-	} else {
-		fmt.Println(result)
-	}
-
+	// utils.Mean(tn)
+	fmt.Println(utils.Numerical(tn))
 }
