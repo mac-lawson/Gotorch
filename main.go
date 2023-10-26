@@ -3,16 +3,26 @@ package main
 import (
 	"fmt"
 
+	"github.com/mac-lawson/gotorch/neuralnetwork"
 	"github.com/mac-lawson/gotorch/tensor"
-	"github.com/mac-lawson/gotorch/utils"
 )
 
 func main() {
-	values := [][]int64{{1, 2, 3}, {2, 3, 4}}
-	tn := tensor.Gotensor_dtypeint64{
-		Data: values,
+
+	tn := tensor.Gotensor_dtypefloat64{
+		Data: [][]float64{
+			{1.1, 22.2, 3.3},
+			{4.7, 20.8, 34.5},
+			{13.4, 222.3, 31.2},
+		},
 	}
 
-	// utils.Mean(tn)
-	fmt.Println(utils.Numerical(tn))
+	wi := neuralnetwork.Weights{
+		W: []float64{1.0},
+		B: 4.4,
+	}
+
+	result, _ := neuralnetwork.ConvolutionalNeuralNetwork(tn, wi, 10, 3)
+	res := result.Y
+	fmt.Println(res[2])
 }
