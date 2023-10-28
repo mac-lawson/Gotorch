@@ -17,3 +17,11 @@ func Numerical(tensor any) bool {
 		return false
 	}
 }
+
+func Similar(type1 any, type2 any) bool {
+	if reflect.TypeOf(type1) == reflect.TypeOf(type2) {
+		return true
+	} else {
+		return false
+	}
+}

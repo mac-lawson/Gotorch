@@ -1,6 +1,7 @@
 package utils
 
 import (
+	"errors"
 	"fmt"
 
 	"github.com/mac-lawson/gotorch/tensor"
@@ -9,7 +10,8 @@ import (
 // MeanFloat64 calculates the mean of a tensor containing float64 values.
 // It prints the column number and its corresponding mean value.
 // If the input tensor is not numerical, it returns 0.
-func MeanFloat64(tensor tensor.Gotensor_dtypefloat64) any {
+func MeanFloat64(tensor tensor.Gotensor_dtypefloat64) (error, []float64) {
+	result := []float64{}
 	if Numerical(tensor) {
 		fmt.Println("Column | Mean")
 		for index, _ := range tensor.Data {
@@ -20,12 +22,13 @@ func MeanFloat64(tensor tensor.Gotensor_dtypefloat64) any {
 				total += 1
 			}
 			sum /= total
-			fmt.Println(index, sum)
+			fmt.Println(index, "\t", sum)
+			result = append(result, sum)
 		}
 	} else {
-		return 0
+		return errors.New("the data provided was not numerical or an issue was encountered with the data"), result
 	}
-	return 0
+	return nil, result
 }
 
 // MeanInt64 calculates the mean of a tensor containing int64 values.

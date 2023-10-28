@@ -1,5 +1,5 @@
 # Gotorch
-## Building simple neural networks in Golang
+## Building neural networks in Golang
 
 ### Gotensors
 Gotensors are basically the same as a numpy array. 
@@ -65,3 +65,9 @@ func main() {
 }
 
 ```
+
+## Features and Change log
+
+TODO
+- refactor functions that do not return a Return type
+- refactor loops not optimized
