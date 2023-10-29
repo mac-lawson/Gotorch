@@ -8,9 +8,9 @@ package neuralnetwork
 *
  */
 
-func InnerNeuron(tensorX float64, weightX float64, b float64, activiationFunctionType uint8) (float64, error) {
-	xInputValue := float64((tensorX * weightX) + b)
-	functionReturnValue, err := Activation(activiationFunctionType, xInputValue)
+func InnerNeuron(inputValue float64, weightX float64, bias float64, activationFunctionType uint8) (float64, error) {
+	xInputValue := float64((inputValue * weightX) + bias)
+	functionReturnValue, err := Activation(activationFunctionType, xInputValue)
 	if err != nil {
 		return 0.0, err
 	} else {

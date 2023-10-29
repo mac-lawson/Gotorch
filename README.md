@@ -1,5 +1,6 @@
 # Gotorch
-## Building neural networks in Golang
+## Simulating neural networks in Golang
+> Run machine learning models without the computational intensity
 
 ### Gotensors
 Gotensors are basically the same as a numpy array. 
@@ -27,7 +28,7 @@ Sample output:
 9.3     6.6     7.4
 5.7     1.6     7.8
 ```
-#### sample main.go file
+#### Getting started
 ```go
 package main
 

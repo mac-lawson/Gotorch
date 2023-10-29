@@ -34,7 +34,7 @@ func MeanFloat64(tensor tensor.Gotensor_dtypefloat64) (error, []float64) {
 // MeanInt64 calculates the mean of a tensor containing int64 values.
 // It prints the column number and its corresponding mean value.
 // If the input tensor is not numerical, it returns 0.
-func MeanInt64(tensor tensor.Gotensor_dtypeint64) any {
+func MeanInt64(tensor tensor.Gotensor_dtypeint64) (error, []int64) {
 	if Numerical(tensor) {
 		fmt.Println("Column | Mean")
 		for index, _ := range tensor.Data {

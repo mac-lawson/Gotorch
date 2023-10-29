@@ -25,7 +25,7 @@ It has three parts, the:
 Verbose mode (bool):
 If you would like to see a more verbose output of the result, enable verbose mode.
 */
-func NeuralNetwork(neurons uint64, activator uint8, wei Weights, tensors tensor.Gotensor_dtypefloat64, verbose bool) (*NeuronOutputArray, error) {
+func BinaryClassification(neurons uint64, activator uint8, wei Weights, tensors tensor.Gotensor_dtypefloat64, verbose bool) (*NeuronOutputArray, error) {
 	r := rand.New(rand.NewSource(99))
 	// generate output so that we can average out the outputs of the function
 	Y := NeuronOutputArray{
