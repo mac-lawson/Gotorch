@@ -35,6 +35,7 @@ func MeanFloat64(tensor tensor.Gotensor_dtypefloat64) (error, []float64) {
 // It prints the column number and its corresponding mean value.
 // If the input tensor is not numerical, it returns 0.
 func MeanInt64(tensor tensor.Gotensor_dtypeint64) (error, []int64) {
+	result := []int64{}
 	if Numerical(tensor) {
 		fmt.Println("Column | Mean")
 		for index, _ := range tensor.Data {
@@ -46,9 +47,10 @@ func MeanInt64(tensor tensor.Gotensor_dtypeint64) (error, []int64) {
 			}
 			sum /= total
 			fmt.Println(index, sum)
+			result = append(result, sum)
 		}
 	} else {
-		return 0
+		return errors.New("the data provided was not numerical or an issue was encountered with the data"), result
 	}
-	return 0
+	return nil, result
 }

@@ -23,7 +23,7 @@ func ConvolutionalNeuralNetwork(tensors tensor.Gotensor_dtypefloat64, weights We
 	// r := rand.New(rand.NewSource(99))
 	for layer := 0; layer < int(layers); layer++ {
 		fmt.Println("\033[34m", "Layer:", layer, "\x1b[0m")
-		result, err := NeuralNetwork(3, activator, weights, tensors, false)
+		result, err := BinaryClassification(3, activator, weights, tensors, false)
 		if err != nil {
 			return &Y, errors.New(err.Error())
 		} else {
