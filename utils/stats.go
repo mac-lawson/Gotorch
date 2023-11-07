@@ -10,7 +10,7 @@ import (
 // MeanFloat64 calculates the mean of a tensor containing float64 values.
 // It prints the column number and its corresponding mean value.
 // If the input tensor is not numerical, it returns 0.
-func MeanFloat64(tensor tensor.Gotensor_dtypefloat64) (error, []float64) {
+func MeanFloat64(tensor tensor.Gotensor_dtypefloat64) ([]float64, error) {
 	result := []float64{}
 	if Numerical(tensor) {
 		fmt.Println("Column | Mean")
@@ -26,15 +26,15 @@ func MeanFloat64(tensor tensor.Gotensor_dtypefloat64) (error, []float64) {
 			result = append(result, sum)
 		}
 	} else {
-		return errors.New("the data provided was not numerical or an issue was encountered with the data"), result
+		return result, errors.New("the data provided was not numerical or an issue was encountered with the data")
 	}
-	return nil, result
+	return result, nil
 }
 
 // MeanInt64 calculates the mean of a tensor containing int64 values.
 // It prints the column number and its corresponding mean value.
 // If the input tensor is not numerical, it returns 0.
-func MeanInt64(tensor tensor.Gotensor_dtypeint64) (error, []int64) {
+func MeanInt64(tensor tensor.Gotensor_dtypeint64) ([]int64, error) {
 	result := []int64{}
 	if Numerical(tensor) {
 		fmt.Println("Column | Mean")
@@ -50,7 +50,7 @@ func MeanInt64(tensor tensor.Gotensor_dtypeint64) (error, []int64) {
 			result = append(result, sum)
 		}
 	} else {
-		return errors.New("the data provided was not numerical or an issue was encountered with the data"), result
+		return result, errors.New("the data provided was not numerical or an issue was encountered with the data")
 	}
-	return nil, result
+	return result, nil
 }

@@ -1,29 +1,19 @@
 package main
 
 import (
-	"fmt"
-
-	"github.com/mac-lawson/gotorch/neuralnetwork"
+	"github.com/mac-lawson/gotorch/matrix"
 	"github.com/mac-lawson/gotorch/tensor"
 )
 
 func main() {
-
-	tn := tensor.Gotensor_dtypefloat64{
+	m := matrix.Matrix{
 		Data: [][]float64{
-			{1.1, 2.2, 3.3, 4.4},
-			{2.2, 3.3, 4.4, 5.5},
+			{1.0, 2, 3},
+			{3.5, 9.0, 8.6},
 		},
 	}
-	wei := neuralnetwork.Weights{
-		W: []float64{1, 1, 1, 1},
-		B: 1,
-	}
-	result, err := neuralnetwork.Perceptron(tn, wei, 3)
+	m1 := matrix.Scalar(4, &m)
+	tn := tensor.Matrix_to_Tensor(*m1)
 
-	if err != nil {
-	} else {
-		fmt.Println(result.Y)
-
-	}
+	tensor.Readfloat64(*tn)
 }
