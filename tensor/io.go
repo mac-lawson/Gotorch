@@ -38,6 +38,6 @@ func Readstring(tensor Gotensor_dtypestring) {
 
 func Matrix_to_Tensor(matrix matrix.Matrix) *Gotensor_dtypefloat64 {
 	return &Gotensor_dtypefloat64{
-		Data: matrix.Data,
+		Data: matrix.Internal,
 	}
 }

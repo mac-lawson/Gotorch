@@ -1,19 +1,25 @@
 package main
 
 import (
+	"fmt"
+
 	"github.com/mac-lawson/gotorch/matrix"
-	"github.com/mac-lawson/gotorch/tensor"
 )
 
 func main() {
-	m := matrix.Matrix{
-		Data: [][]float64{
-			{1.0, 2, 3},
-			{3.5, 9.0, 8.6},
+	m1 := matrix.Matrix{
+		Internal: [][]float64{
+			{1.0, 2},
+			{3.5, 9.0},
 		},
 	}
-	m1 := matrix.Scalar(4, &m)
-	tn := tensor.Matrix_to_Tensor(*m1)
+	m2 := matrix.Matrix{
+		Internal: [][]float64{
+			{1.0, 2},
+			{3.5, 9.0},
+		},
+	}
 
-	tensor.Readfloat64(*tn)
+	m3 := matrix.Add(&m1, &m2)
+	fmt.Println(m3)
 }

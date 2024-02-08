@@ -2,14 +2,14 @@ package matrix
 
 func Scalar(scalarValue float64, matrix *Matrix) *Matrix {
 	returnMatrix := Matrix{
-		Data: [][]float64{},
+		Internal: [][]float64{},
 	}
-	for index, _ := range matrix.Data {
+	for index, _ := range matrix.Internal {
 		var innerArray []float64
-		for _, innervalue := range matrix.Data[index] {
+		for _, innervalue := range matrix.Internal[index] {
 			innerArray = append(innerArray, scalarValue*innervalue)
 		}
-		returnMatrix.Data = append(returnMatrix.Data, innerArray)
+		returnMatrix.Internal = append(returnMatrix.Internal, innerArray)
 	}
 	return &returnMatrix
 }
