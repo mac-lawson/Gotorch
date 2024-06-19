@@ -1,6 +1,7 @@
 package matrix
 
 import "fmt"
+
 // test
 func Add(matrixA *Matrix, matrixB *Matrix) *Matrix {
 	if len(matrixA.Internal) != len(matrixB.Internal) || len(matrixA.Internal[0]) != len(matrixB.Internal[0]) {
