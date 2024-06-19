@@ -3,13 +3,13 @@ package matrix
 import "fmt"
 
 // test
-func Add(matrixA *Matrix, matrixB *Matrix) *Matrix {
+func Add(matrixA *Matrixf, matrixB *Matrixf) *Matrixf {
 	if len(matrixA.Internal) != len(matrixB.Internal) || len(matrixA.Internal[0]) != len(matrixB.Internal[0]) {
 		fmt.Println("Matrices must have the same dimensions for addition.")
 		return nil
 	}
 
-	result := &Matrix{
+	result := &Matrixf{
 		Internal: make([][]float64, len(matrixA.Internal)),
 	}
 

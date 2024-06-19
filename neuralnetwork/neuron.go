@@ -42,20 +42,19 @@ type Weights struct {
 
 // FUTURE Neuron() function
 
-func RealNeuron(input tensor.Gotensor_dtypefloat64, weights *Weights, activator int32) (*NeuronOutput, error) {
+func Neuron(input tensor.Gotensor_dtypefloat64, weights *Weights, activator int32) (*NeuronOutput, error) {
 	// the total value of the weighted inputs to the neuron, this willbe added to the bias and run through the activiation function
-	var weightedInputs = 0.0
+	weightedInputs := 0.0
 	for i := 0; i < len(input.Data); i++ {
 		for ii := 0; ii < len(input.Data[i]); ii++ {
 			if len(input.Data[i]) > len(weights.W) {
 				return &NeuronOutput{0}, errors.New(errorhandling.TensorNotMatching())
 			} else {
 				weightedInputs += float64(input.Data[i][ii] * weights.W[ii])
-
 			}
 		}
 	}
-	//TODO need to make sure the entire Y value is not rounded
+	// TODO need to make sure the entire Y value is not rounded
 	resultOfActiviationFunction, err := InnerNeuron(weightedInputs, 1.0, weights.B, uint8(activator))
 	fmt.Println(resultOfActiviationFunction)
 	if err != nil {
@@ -81,11 +80,9 @@ func NeuronTest(input tensor.Gotensor_dtypefloat64, weights Weights, activation 
 					fmt.Println(err)
 				} else {
 					fmt.Println("Epoch", epoch, ":", yOutput)
-
 				}
 				epoch++
 			}
-
 		}
 	}
 	return nil
