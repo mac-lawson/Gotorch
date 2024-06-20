@@ -3,7 +3,7 @@ copyright: >
   <a href="#__consent">Change cookie settings</a>
 
 
-site_name: Tensorgo Documentation
+site_name: Gotorch Documentation
 theme:
   name: material
   icon:
@@ -15,9 +15,11 @@ theme:
 
 nav:
   - Introduction: 'index.md'
-  - Cloud Server: 'cloudserver.md'
-  - Tensor: 'tensor.md'
-
+  - Tensor:
+    - 'Data Types': 'types.md'
+  - Datasets:
+    - 'Dataset Imports': 'dataset.md'
+    - 'Tokenizer': 'tokenize.md'
   - 'Go Documentation': 'https://go.dev/'
 
 plugins:

@@ -1,8 +1,6 @@
 package main
 
 import (
-	"fmt"
-
 	"github.com/mac-lawson/gotorch/datasets"
 )
 
@@ -34,8 +32,16 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	fmt.Println(data)
+	// fmt.Println(data)
 
-	new := data.Pop(0)
-	fmt.Println(new)
+	//new := data.Pop(0)
+	//fmt.Println(new)
+	//
+	d2, err2 := data.Tokenize()
+	if err2 != nil {
+		panic(err2)
+	}
+	// fmt.Println(d2)
+	// d2.Helper()
+	d2.Dump()
 }

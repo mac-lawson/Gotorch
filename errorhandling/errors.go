@@ -1,7 +1,7 @@
 package errorhandling
 
-/* TensorGo: an error first platform! ;)
-*	At TensorGo, I'm trying to make errors as friendly as possible
+/* Gotorch: an error first platform! ;)
+*	With Gotorch, I'm trying to make errors as friendly as possible
 *	Once the MKDOCS are up, each error will be raised with a link to a *helpfull* debug assistance page
 *
 *

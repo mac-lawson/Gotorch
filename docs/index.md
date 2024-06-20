@@ -1,4 +1,4 @@
-# Welcome to Tensorgo
+# Welcome to Gotorch
 
 ## Getting Started
 ### Creating your first Tensor

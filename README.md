@@ -1,4 +1,14 @@
 # Gotorch
+Version 0.1.1
+
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/mac-lawson/gotorch/.github%2Fworkflows%2Fgo.yml)
+![GitHub License](https://img.shields.io/github/license/mac-lawson/gotorch)
+
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/mac-lawson/gotorch)
+
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/7558ccce51f34572a17710a3b2736fce)](https://app.codacy.com/gh/mac-lawson/Gotorch/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
+
+
 ## Simulating simple neural networks in Golang
 
 ### Gotensors
