@@ -1,6 +1,10 @@
 package main
 
-import "github.com/mac-lawson/gotorch/datasets"
+import (
+	"fmt"
+
+	"github.com/mac-lawson/gotorch/datasets"
+)
 
 /*
 func main() {
@@ -26,5 +30,12 @@ func main() {
 */
 
 func main() {
-  datasets.
+	data, err := datasets.FromCSVFile("datasets/samples/data.csv")
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println(data)
+
+	new := data.Pop(0)
+	fmt.Println(new)
 }

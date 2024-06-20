@@ -6,16 +6,24 @@ import (
 	"os"
 )
 
-type CSVdata struct {
-	Data [][]string
+func (c *CSVdata) Pop(index uint8) *CSVdata {
+	new_data := append(c.Data[:index], c.Data[index+1:]...)
+	data, err := NewCSV(new_data)
+	return
 }
 
-func NewCSV(data [][]string) (*) {}
-  // Create a new CSV object
-} 
+func (c *CSVdata) Add(data [][]string) [][]string {
+	return append(c.Data, data...)
+}
+
+func NewCSV(data [][]string) (*CSVdata, error) {
+	return &CSVdata{
+		Data: data,
+	}, nil
+}
 
 func FromCSVFile(path string) (*CSVdata, error) {
-	file, err := os.Open("./samples/data.csv")
+	file, err := os.Open(path)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -27,5 +35,5 @@ func FromCSVFile(path string) (*CSVdata, error) {
 		log.Fatal(err)
 	}
 
-	return records, nil
+	return NewCSV(records)
 }
