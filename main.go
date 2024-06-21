@@ -1,7 +1,10 @@
 package main
 
 import (
+	"fmt"
+
 	"github.com/mac-lawson/gotorch/datasets"
+	"github.com/mac-lawson/gotorch/tensor"
 )
 
 /*
@@ -34,8 +37,8 @@ func main() {
 	}
 	// fmt.Println(data)
 
-	//new := data.Pop(0)
-	//fmt.Println(new)
+	// new := data.Pop(0)
+	fmt.Println(data)
 	//
 	d2, err2 := data.Tokenize()
 	if err2 != nil {
@@ -43,5 +46,7 @@ func main() {
 	}
 	// fmt.Println(d2)
 	// d2.Helper()
-	d2.Dump()
+	// d2.dump()
+	y := d2.ToTensor()
+	tensor.Readfloat64(*y)
 }
