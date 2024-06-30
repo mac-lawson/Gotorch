@@ -8,13 +8,13 @@ import (
 	"github.com/mac-lawson/gotorch/tensor"
 )
 
-func BinaryClassification(neurons uint64, activator uint8, wei Weights, tensors tensor.Gotensor_dtypefloat64, verbose bool) (*NeuronOutputArray, error) {
+func BinaryClassification(neurons uint64, activator uint8, wei Weights, tensors tensor.Tensorfloat64, verbose bool) (*NeuronOutputArray, error) {
 	// generate output so that we can average out the outputs of the function
 	Y := NeuronOutputArray{
 		Y: []float64{},
 	}
 
-	for i := 0; i < len(tensors.Data); i++ {
+	for i := 0; i < len(tensors); i++ {
 		randomFloat, err := cryptomath.CryptoRandomFloat64()
 		if err != nil {
 			return &Y, err
@@ -28,11 +28,11 @@ func BinaryClassification(neurons uint64, activator uint8, wei Weights, tensors 
 	// for every neuron
 	for i := 0; i < int(neurons); i++ {
 		// for every array of tensors
-		for i := 0; i < len(tensors.Data); i++ {
+		for i := 0; i < len(tensors); i++ {
 			// for every tensor inside of the array
-			for tensor := 0; tensor < len(tensors.Data[i]); tensor++ {
+			for tensor := 0; tensor < len(tensors[i]); tensor++ {
 				// run it through the InnerNeuron function with the data and weights
-				output, err := InnerNeuron(tensors.Data[i][tensor], wei.W[tensor], wei.B, activator)
+				output, err := InnerNeuron(tensors[i][tensor], wei.W[tensor], wei.B, activator)
 				if err != nil {
 					// quit and raise an error if one is encountered during the running of the InnerNeuron function.
 					// It returns all data received so far before the error to ensure integrity.
@@ -51,7 +51,7 @@ func BinaryClassification(neurons uint64, activator uint8, wei Weights, tensors 
 	if verbose {
 		fmt.Println("\033[32m", "Network Finished Running")
 		fmt.Println("\033[34m", "\tInformation")
-		fmt.Println("Total Tensor Arrays", len(tensors.Data))
+		fmt.Println("Total Tensor Arrays", len(tensors))
 		fmt.Println("Total Weights", len(wei.W))
 	}
 

@@ -42,15 +42,15 @@ type Weights struct {
 
 // FUTURE Neuron() function
 
-func Neuron(input tensor.Gotensor_dtypefloat64, weights *Weights, activator int32) (*NeuronOutput, error) {
+func Neuron(input tensor.Tensorfloat64, weights *Weights, activator int32) (*NeuronOutput, error) {
 	// the total value of the weighted inputs to the neuron, this willbe added to the bias and run through the activiation function
 	weightedInputs := 0.0
-	for i := 0; i < len(input.Data); i++ {
-		for ii := 0; ii < len(input.Data[i]); ii++ {
-			if len(input.Data[i]) > len(weights.W) {
+	for i := 0; i < len(input); i++ {
+		for ii := 0; ii < len(input[i]); ii++ {
+			if len(input[i]) > len(weights.W) {
 				return &NeuronOutput{0}, errors.New(errorhandling.TensorNotMatching())
 			} else {
-				weightedInputs += float64(input.Data[i][ii] * weights.W[ii])
+				weightedInputs += float64(input[i][ii] * weights.W[ii])
 			}
 		}
 	}
@@ -66,16 +66,16 @@ func Neuron(input tensor.Gotensor_dtypefloat64, weights *Weights, activator int3
 
 // TEST Neuron() function
 // id: the ID of the neuron to ensure
-func NeuronTest(input tensor.Gotensor_dtypefloat64, weights Weights, activation uint8, id int64) error {
+func NeuronTest(input tensor.Tensorfloat64, weights Weights, activation uint8, id int64) error {
 	// epoch counter
 	var epoch uint8 = 0
 	// verify that each tensor array has the same value of the weights
-	for i := 0; i < len(input.Data); i++ {
-		for ii := 0; ii < len(input.Data[i]); ii++ {
-			if len(input.Data[i]) > len(weights.W) {
+	for i := 0; i < len(input); i++ {
+		for ii := 0; ii < len(input[i]); ii++ {
+			if len(input[i]) > len(weights.W) {
 				return errors.New(errorhandling.TensorNotMatching())
 			} else {
-				yOutput, err := InnerNeuron(input.Data[i][ii], weights.W[ii], weights.B, activation)
+				yOutput, err := InnerNeuron(input[i][ii], weights.W[ii], weights.B, activation)
 				if err != nil {
 					fmt.Println(err)
 				} else {

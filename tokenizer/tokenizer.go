@@ -35,7 +35,7 @@ func Tokenizer_str(data [][]string) *TokenizedData_str {
 *
  */
 
-func (td *TokenizedData_str) ToTensor() *tensor.Gotensor_dtypefloat64 {
+func (td *TokenizedData_str) ToTensor() tensor.Tensorfloat64 {
 	tensorarray := make([][]float64, len(td.TokenizedData))
 	for i, row := range td.TokenizedData {
 		tensorarray[i] = make([]float64, len(row))
@@ -43,5 +43,5 @@ func (td *TokenizedData_str) ToTensor() *tensor.Gotensor_dtypefloat64 {
 			tensorarray[i][j] = float64(val)
 		}
 	}
-	return tensor.GoTensorFloat64(tensorarray)
+	return tensor.Tensorfloat64(tensorarray)
 }

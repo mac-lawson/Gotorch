@@ -6,12 +6,12 @@ import (
 	"github.com/mac-lawson/gotorch/tensor"
 )
 
-func Perceptron(inputData tensor.Gotensor_dtypefloat64, weights Weights, activationFunction uint8) (*NeuronOutput, error) {
+func Perceptron(inputData tensor.Tensorfloat64, weights Weights, activationFunction uint8) (*NeuronOutput, error) {
 	preResult := NeuronOutputArray{
 		Y: []float64{},
 	}
 
-	for _, inputVector := range inputData.Data {
+	for _, inputVector := range inputData {
 		var neuronOutputs []float64
 
 		for i, inputValue := range inputVector {

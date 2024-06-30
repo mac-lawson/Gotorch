@@ -4,7 +4,6 @@ import (
 	"fmt"
 
 	"github.com/mac-lawson/gotorch/datasets"
-	"github.com/mac-lawson/gotorch/tensor"
 )
 
 /*
@@ -47,6 +46,5 @@ func main() {
 	// fmt.Println(d2)
 	// d2.Helper()
 	// d2.dump()
-	y := d2.ToTensor()
-	tensor.Readfloat64(*y)
+	d2.ToTensor()
 }
